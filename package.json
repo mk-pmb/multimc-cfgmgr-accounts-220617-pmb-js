@@ -1,0 +1,35 @@
+{ "name": "multimc-cfgmgr-accounts-220617-pmb",
+  "version": "0.0.1",
+  "description": "A temporary stopgap for MultiMC account config until they implement Offline/LAN accounts (issue 4784).",
+  "keywords": [],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/multimc-cfgmgr-accounts-220617-pmb-js/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/multimc-cfgmgr-accounts-220617-pmb-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/multimc-cfgmgr-accounts-220617-pmb-js/issues"
+  },
+  "contributors": [],
+
+  "private": true, "license": "ISC",
+
+  "main": "src/cli.mjs",
+  "scripts": { "test": "elp && nodemjs test/all.mjs" },
+  "directories": { "test": "test" },
+  "eslintConfig": { "extends": "nodejs-pmb" },
+
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-nodejs-pmb": "^0.3.4",
+    "eslint-plugin-json-light-pmb": "^1.0.7",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-pretty-pmb": "^1.0.5",
+    "nodemjs": "^0.1.11"
+  },
+
+
+  "engines": { "npm": ">=7.0.0", "node": ">=16.0.0" }
+}
