@@ -40,6 +40,9 @@ You did? Ok then.
 1.  Make a skin for Alan in the same format that `notch.png` is
     (probably 64×64 pixels non-interlaced 8-bit RGBA PNG)
     and save it as `alan.png`.
+    * You can also find some example skins in Minecraft's `client.jar`,
+      sub path `assets/minecraft/textures/entity/`,
+      like `alex.png` and `steve.png`.
 1.  `./bin/cli.sh accounts.knownGood.json
     stubUser Alan
     loadSkin alan.png
