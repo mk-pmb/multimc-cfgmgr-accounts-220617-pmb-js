@@ -29,6 +29,9 @@ async function nextTodo(state) {
 
 function paseAccountsConfig(data) {
   const { accounts, ...junk } = data;
+  if (!Array.isArray(accounts)) {
+    throw new Error('Original config seems to not include an accounts list.');
+  }
   const accByName = new Map();
   const report = {
     accByName,
@@ -51,10 +54,18 @@ function paseAccountsConfig(data) {
 
 async function cliMain() {
   const [srcFile, ...todo] = process.argv.slice(2);
+  const srcData = await (async function fx() {
+    const s = srcFile;
+    if (!s) { throw new Error('No source file spec given!'); }
+    if (s.startsWith('file:')) { return readDataFile(s.slice(5)); }
+    if (s.startsWith('json:')) { return JSON.parse(s.slice(5)); }
+    if (s === 'empty:') { return { formatVersion: 3, accounts: [] }; }
+    return readDataFile(s.slice(5));
+  }());
   const state = {
     srcFile,
     todo,
-    ...paseAccountsConfig(await readDataFile(srcFile)),
+    ...paseAccountsConfig(srcData),
     ...stateApi,
   };
   await nextTodo(state);
