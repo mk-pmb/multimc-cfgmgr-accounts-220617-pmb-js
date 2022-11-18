@@ -2,8 +2,7 @@
 
 import nodeCrypto from 'crypto';
 
-
-const pngMagicBytesBase64 = 'iVBORw0K'; // === btoa('\x89' + 'PNG' + '\r\n')
+import skinStuff from './skinStuff.mjs';
 
 
 function hash(x) {
@@ -29,7 +28,7 @@ const EX = function makeStubAccount(name) {
   const skin = {
     id: uuid('skin:' + name),
     variant: 'SLIM',
-    data: pngMagicBytesBase64,
+    data: skinStuff.pngMagicBytesBase64,
   };
   skin.url = 'http://example.net/' + skin.id + '.png';
   const acc = {

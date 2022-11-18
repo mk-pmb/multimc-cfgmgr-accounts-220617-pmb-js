@@ -3,7 +3,7 @@
 import copyUser from './copyUser.mjs';
 import exportConfig from './exportConfig.mjs';
 import makeStubAccount from './makeStubAccount.mjs';
-import skinTasks from './skinTasks.mjs';
+import skinStuff from './skinStuff.mjs';
 
 
 const knownTasks = {
@@ -34,7 +34,7 @@ const knownTasks = {
     return acc.profile.id;
   },
 
-  ...skinTasks,
+  ...skinStuff.tasks,
 
   exportConfig,
 
