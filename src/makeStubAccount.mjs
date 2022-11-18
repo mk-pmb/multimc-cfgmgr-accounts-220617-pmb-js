@@ -2,6 +2,10 @@
 
 import nodeCrypto from 'crypto';
 
+
+const pngMagicBytesBase64 = 'iVBORw0K'; // === btoa('\x89' + 'PNG' + '\r\n')
+
+
 function hash(x) {
   return nodeCrypto.createHash('sha1').update(x).digest('hex');
 }
@@ -25,7 +29,7 @@ const EX = function makeStubAccount(name) {
   const skin = {
     id: uuid('skin:' + name),
     variant: 'SLIM',
-    data: 'iVBORw0K',
+    data: pngMagicBytesBase64,
   };
   skin.url = 'http://example.net/' + skin.id + '.png';
   const acc = {
