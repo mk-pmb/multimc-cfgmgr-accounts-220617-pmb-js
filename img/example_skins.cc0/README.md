@@ -15,5 +15,7 @@ ImageMagick cheat sheet
   `convert skin.png -background fuchsia -flatten ppm:skin.flat.ppm`
 * To it back to 32-bit RGBA:
   `convert skin.flat.ppm -transparent fuchsia png32:skin.png`
+* Note to self: On machines that have `multimedia-util-pmb`,
+  just use `pngalpha2ppm`.
 
 
