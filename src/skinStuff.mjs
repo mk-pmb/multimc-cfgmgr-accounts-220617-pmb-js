@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import noFs from 'nofs';
+import promisedFs from 'fs/promises';
 import absdir from 'absdir';
 
 const pathInRepo = absdir(import.meta, '..');
@@ -29,7 +29,7 @@ function translateMagicFilePath(x) {
 
 async function readAndEncode(path) {
   const pngFileName = translateMagicFilePath(path);
-  const pngBuf = await noFs.readFile(pngFileName);
+  const pngBuf = await promisedFs.readFile(pngFileName);
   const base64 = verifyBase64Png(pngBuf.toString('base64'));
   return { base64, bufLen: pngBuf.length };
 }
@@ -51,7 +51,7 @@ async function saveSkin(state) {
   const pngFileName = state.nextArg();
   const pngBase64 = verifyBase64Png(state.acc.profile.skin.data);
   const pngBuf = Buffer.from(pngBase64, 'base64');
-  await noFs.writeFile(pngFileName, pngBuf);
+  await promisedFs.writeFile(pngFileName, pngBuf);
   return pngBuf.length;
 }
 

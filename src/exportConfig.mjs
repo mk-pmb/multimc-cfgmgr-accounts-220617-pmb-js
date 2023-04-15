@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import noFs from 'nofs';
+import promisedFs from 'fs/promises';
 import sortedJson from 'safe-sortedjson';
 
 
@@ -25,7 +25,7 @@ const EX = async function exportConfig(state) {
   });
   const cfgData = { ...state.junk, accounts };
   const cfgText = sortedJson(cfgData) + '\n';
-  await noFs.writeFile(destFileName, cfgText, { encoding: 'UTF-8' });
+  await promisedFs.writeFile(destFileName, cfgText, { encoding: 'UTF-8' });
   return cfgText.length;
 };
 
