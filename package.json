@@ -1,5 +1,5 @@
 { "name": "multimc-cfgmgr-accounts-220617-pmb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A temporary stopgap for MultiMC account config until they implement Offline/LAN accounts (issue 4784).",
   "keywords": [],
 
@@ -24,11 +24,11 @@
   "dependencies": {
     "absdir": "^1.0.6",
     "exit-code": "^1.0.2",
-    "nodemjs": "^0.1.13",
+    "nodemjs": "^0.1.14",
     "nofs": "^0.12.2",
-    "p-fatal": "^0.1.3",
+    "p-fatal": "^0.1.5",
     "read-data-file": "^2.0.8",
-    "safe-sortedjson": "^1.0.7",
+    "safe-sortedjson": "^1.0.8",
     "usnam-pmb": "^0.2.5"
   },
   "devDependencies": {

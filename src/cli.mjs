@@ -27,7 +27,7 @@ async function nextTodo(state) {
 };
 
 
-function paseAccountsConfig(data) {
+function parseAccountsConfig(data) {
   const { accounts, ...junk } = data;
   if (!Array.isArray(accounts)) {
     throw new Error('Original config seems to not include an accounts list.');
@@ -66,7 +66,7 @@ async function cliMain() {
   const state = {
     srcFile,
     todo,
-    ...paseAccountsConfig(await inputFileMagic(srcFile)),
+    ...parseAccountsConfig(await inputFileMagic(srcFile)),
     ...stateApi,
   };
   await nextTodo(state);
